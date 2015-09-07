@@ -78,6 +78,7 @@ code generation, assembly, and linking.
 and that are easy to avoid (or modify to prevent the warning), even in conjunction with macros.
 This also enables some language-specific warnings described in C++ Dialect Options and Objective-C
 and Objective-C++ Dialect Options. -Wall turns on the following warning flags:
+
 ```
 Waddress
 Warray-bounds=1 (only with -O2)
@@ -112,7 +113,6 @@ Wunused-label
 Wunused-value
 Wunused-variable
 Wvolatile-register-var
-```
 ```
 
 > `-g`: Generate debug information.  Note that Clang debug information works best at -O0.
