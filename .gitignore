@@ -22,5 +22,10 @@ Object files
 *.x86_64
 *.hex
 
+# Directories
+builds/*
+
 .DS_Store
+
+
 
