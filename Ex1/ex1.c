@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+/* Start of Main func */
 int main(int argc, char *argv[]) {
 
     puts("Hello World!\n");
