@@ -205,7 +205,7 @@ depend:
 
 ### Find a `Makefile` in another C project and try to understand what it's doing.
 I reviewed an example Makefile from the Stanford University CS 107, which was another
-great introduction to some key concepts to increase extensible and highly readable Makefiles:
+great introduction to key concepts that allow for the creation of extensible and highly readable Makefiles:
 
 1. Use of comments, denoted by `#` help visually separate concerns and logically ordered code.
 2. Addition of several more CFLAGS params (including `-std=c99`) illustrate the flexibility of error-checking.
