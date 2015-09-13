@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    int age = 10;
+    int age = 28;
     int height = 75;
 
     printf("I am %d years old\n", age);
