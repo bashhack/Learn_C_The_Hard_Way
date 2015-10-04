@@ -1,0 +1,27 @@
+#! /usr/local/bin/node
+
+var i = 0,
+    guitars = [],
+    numOfGuitars = 0;
+
+for (i = 1; i < process.argv; i++) {
+    console.log('arg ' + i + ': ' + process.argv[i]);
+}
+
+guitars = [
+    "Fender",
+    "Gibson",
+    "Rickenbacker",
+    "Ibanez"
+]
+
+console.log(guitars[1]);
+
+numOfGuitars = 4;
+
+for (i = 0; i < numOfGuitars; i++) {
+    console.log('guitars ' + i + ': ' + guitars[i]);
+}
+
+console.log('Arguments', process.argv.length);
+console.log(process.argv);
