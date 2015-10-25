@@ -3,5 +3,5 @@ project(LCTHW)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -std=c99")
 
-set(SOURCE_FILES Ex11/ex11.c)
-add_executable(Ex11 ${SOURCE_FILES})
+set(SOURCE_FILES Ex12/ex12.c)
+add_executable(Ex12 ${SOURCE_FILES})
