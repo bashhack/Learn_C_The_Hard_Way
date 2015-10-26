@@ -8,6 +8,7 @@ int main(int argc, char *argv[]) {
 
     // Init
     int i = 0;
+//    int rand;
 
     for (i = 0; argv[1][i] != '\0'; i++) {
         char letter = argv[1][i];
@@ -15,7 +16,12 @@ int main(int argc, char *argv[]) {
         switch (letter) {
             case 'a':
             case 'A':
+                // Assign variable using incorrect data type
+//                rand = argv[1];
+//                printf("%d: 'rand'\n", rand);
+
                 printf("%d: 'A'\n", i);
+                printf("argc count was: %d\n", argc);
                 break;
 
             case 'e':

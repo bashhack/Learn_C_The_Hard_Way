@@ -18,7 +18,29 @@ Without the default case, the first break encountered after a vowel match stops 
 1: 'A'
 ```
 ### Accidentally put in variable into the ```switch``` that evaluates to something unexpected, like an ```int``` that becomes weird values.
+To test this condition, I initialized a new variable ```rand``` of type ```int``` which I then assigned to a value of data type ```char```.
 
+After deleting the executable and rebuilding the program, I received the following output from CMake:
+```
+[ 50%] Building C object CMakeFiles/Ex13.dir/Ex13/ex13.c.o
+/.../.../Development/Projects/Learn_C_The_Hard_Way/Ex13/ex13.c:20:22: warning: incompatible pointer to integer conversion assigning to 'int' from 'char *' [-Wint-conversion]
+                rand = argv[1];
+                     ^ ~~~~~~~
+1 warning generated.
+[100%] Linking C executable /.../.../Development/Projects/Learn_C_The_Hard_Way/builds/Debug/Ex13
+[100%] Built target Ex13
+```
+
+The resulting output was generated after passing in a single argument to the program. As we have seen before, the C compiler assigned a random value to the variable:
+```
+ ➜  ./Ex13 Marc
+0: M is not a vowel
+1599932671: 'rand'
+1: 'A'
+argc count was: 2
+2: r is not a vowel
+3: c is not a vowel
+```
 ### Use uninitialized values in the ```switch```.
 
 ## Extra Credit
