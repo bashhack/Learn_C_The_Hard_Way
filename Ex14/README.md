@@ -72,7 +72,11 @@ void print_letters(char arg[]) {
 ```
 
 ### Have ```print_arguments``` figure out how long each argument string is by using the ```strlen``` function, and then pass that length to ```print_letters```. Then, rewrite ```print_letters``` so it only processes this fixed length and doesn't rely on the ```'\0'``` terminator. You'll need the ```#include <string.h>``` for this.
-TODO: Finish description of process
+In refactoring my code, I focused on the following steps:
+* Update forward declarations' params
+* Update ```print_arguments``` function to utilize ```strlen()```
+* Update ```for-loop``` condition to check length
+
 ```
 #include <stdio.h>
 #include <ctype.h>
@@ -113,7 +117,7 @@ void print_letters(char arg[], size_t len) {
 
 int main(int argc, char *argv[]) {
 
-    print_arguments((argc), argv);
+    print_arguments(argc, argv);
 
     int i = 0;
 
@@ -139,19 +143,96 @@ There were 2 args passed to the function
 'dog' is the arg
 ```
 ### Use ```man``` to look up information on ```isalpha``` and ```isblank```. Use other similar functions to print out only digits or other characters.
+Adding two additional functions from the C standard library (invoked by including the appropriate header file ```ctype.h```), I modified my code to check for digits and punctuation. This was accomplished by using ```ispunct``` and ```isdigit```.
+
+My modified code is presented here:
+```
+void print_letters(char arg[], size_t len) {
+
+    int i =  0;
+
+    // Without terminator
+    for (i = 0; i < len; i++) {
+        char ch = arg[i];
+
+        // Removing the function call
+        if (isalpha(ch) || isblank(ch)) {
+            printf("'%c' == %d ", ch, ch);
+        }
+
+        // Adding checks for punctuation and digit
+        if (isdigit(ch) || ispunct(ch)) {
+            printf("'%c' == %d ", ch, ch);
+        }
+    }
+
+    printf("\n");
+}
+```
+
+The output is shown here:
+```
+ ➜  ./Ex14 dog
+'.' == 46 '/' == 47 'E' == 69 'x' == 120 '1' == 49 '4' == 52
+'d' == 100 'o' == 111 'g' == 103
+The arg is './Ex14' and its length is '6'
+The arg is 'dog' and its length is '3'
+There were 2 args passed to the function
+'./Ex14' is the arg
+'dog' is the arg
+```
 ### Go read about how other people like to format their functions. Never use the K&R syntax (it's antiquated and confusing) but understand what it's doing in case you run into someone who likes it.
+In contrast to modern function definition:
+```
+void print_letters(char arg[], size_t len) {
 
-```
- ➜  ./Ex14
-'E' == 69 'x' == 120
+    int i =  0;
+
+    // Without terminator
+    for (i = 0; i < len; i++) {
+        char ch = arg[i];
+
+        // Removing the function call
+        if (isalpha(ch) || isblank(ch)) {
+            printf("'%c' == %d ", ch, ch);
+        }
+
+        // Adding checks for punctuation and digit
+        if (isdigit(ch) || ispunct(ch)) {
+            printf("'%c' == %d ", ch, ch);
+        }
+    }
+
+    printf("\n");
+}
 ```
 
+...the Kernighan and Ritchie syntax (NOTE: my 2nd edition of The C Programming Language eschews this practice) was like this:
 ```
- ➜  ./Ex14 Get in da choppa
-'E' == 69 'x' == 120
-'G' == 71 'e' == 101 't' == 116
-'i' == 105 'n' == 110
-'d' == 100 'a' == 97
-'c' == 99 'h' == 104 'o' == 111 'p' == 112 'p' == 112 'a' == 97
+int print_letters(arg[], len)
+     char arg[];
+     size_t len;
+{
+
+    int i =  0;
+
+    for (i = 0; i < len; i++) {
+        char ch = arg[i];
+
+        if (isalpha(ch) || isblank(ch)) {
+            printf("'%c' == %d ", ch, ch);
+        }
+
+        if (isdigit(ch) || ispunct(ch)) {
+            printf("'%c' == %d ", ch, ch);
+        }
+    }
+
+    printf("\n");
+
+    return 0;
+}
 ```
+
+C99 standards still allow for K&R syntax, but ANSI/ISO C syntax is just far easier to grok.
 

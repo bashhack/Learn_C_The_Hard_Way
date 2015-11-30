@@ -31,6 +31,11 @@ void print_letters(char arg[], size_t len) {
         if (isalpha(ch) || isblank(ch)) {
             printf("'%c' == %d ", ch, ch);
         }
+
+        // Adding checks for punctuation and digit
+        if (isdigit(ch) || ispunct(ch)) {
+            printf("'%c' == %d ", ch, ch);
+        }
     }
 
 //    // With terminator
@@ -51,7 +56,7 @@ void print_letters(char arg[], size_t len) {
     printf("\n");
 }
 
-//// Original func call from ln. 30
+//// Original func call from ln. 51
 //int can_print_it(char ch) {
 //    return isalpha(ch) || isblank(ch);
 //}
@@ -60,7 +65,7 @@ int main(int argc, char *argv[]) {
 
 //    // Adding 1 to extend argc
 //    print_arguments((argc + 1), argv);
-    print_arguments((argc), argv);
+    print_arguments(argc, argv);
 
     int i = 0;
 
