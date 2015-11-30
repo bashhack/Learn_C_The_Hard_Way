@@ -5,4 +5,4 @@ strengthen my knowledge and application of the C programming language?
 
 For more information about the text I am using in my studies, please visit: [Learn C The Hard Way](http://c.learncodethehardway.org/book/)
 
-bashhack, 2015 - [Resume](https://www.linkedin.com/in/marclaughton) - [Website](http://www.marclaughton.com/)
+bashhack, 2015 - [LinkedIn](https://www.linkedin.com/in/marclaughton) - [Website](http://www.marclaughton.com/)
